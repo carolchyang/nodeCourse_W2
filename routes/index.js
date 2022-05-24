@@ -38,9 +38,9 @@ const routes = async (req, res) => {
   } else if (url.startsWith("/posts") && method === "DELETE") {
     PostsControllers.delPost({ req, res });
   } else if (method === "OPTIONS") {
-    HttpControllers.cors();
+    HttpControllers.cors(req, res);
   } else {
-    HttpControllers.notFound();
+    HttpControllers.notFound(req, res);
   }
 };
 
