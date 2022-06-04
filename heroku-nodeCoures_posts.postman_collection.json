@@ -1,0 +1,114 @@
+{
+  "info": {
+    "_postman_id": "d64b6c4c-4f77-4cd5-b80c-a0b70929615c",
+    "name": "nodeCoures_posts heroku",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "9557023"
+  },
+  "item": [
+    {
+      "name": "取得所有貼文",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://nameless-earth-27379.herokuapp.com/posts",
+          "protocol": "https",
+          "host": ["nameless-earth-27379", "herokuapp", "com"],
+          "path": ["posts"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "取得單一貼文",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://nameless-earth-27379.herokuapp.com/posts/628d04e8c1e46b2f386b0519",
+          "protocol": "https",
+          "host": ["nameless-earth-27379", "herokuapp", "com"],
+          "path": ["posts", "628d04e8c1e46b2f386b0519"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "新增貼文",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"貼文姓名\",\r\n    \"tags\": \"電影\",\r\n    \"type\": \"group\",\r\n    \"image\": \"https://images.unsplash.com/photo-1653380399372-4cfa7cfcfab9\",\r\n    \"content\": \"貼文內容\",\r\n    \"likes\": 2,\r\n    \"comments\": 100\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://nameless-earth-27379.herokuapp.com/posts",
+          "protocol": "https",
+          "host": ["nameless-earth-27379", "herokuapp", "com"],
+          "path": ["posts"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "修改貼文",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"貼文姓名2\",\r\n    \"tags\": \"電影\",\r\n    \"type\": \"group\",\r\n    \"image\": \"https://images.unsplash.com/photo-1653380399372-4cfa7cfcfab9\",\r\n    \"content\": \"貼文內容\",\r\n    \"likes\": 2,\r\n    \"comments\": 100\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://nameless-earth-27379.herokuapp.com/posts/628d04e8c1e46b2f386b0519",
+          "protocol": "https",
+          "host": ["nameless-earth-27379", "herokuapp", "com"],
+          "path": ["posts", "628d04e8c1e46b2f386b0519"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "刪除單一貼文",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://nameless-earth-27379.herokuapp.com/posts/628cbefc2b24036b334d0d2c",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "3005",
+          "path": ["posts", "628cbefc2b24036b334d0d2c"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "刪除全部貼文",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://nameless-earth-27379.herokuapp.com/posts",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "3005",
+          "path": ["posts"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
