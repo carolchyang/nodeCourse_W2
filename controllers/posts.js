@@ -44,29 +44,32 @@ const posts = {
       const { name, tags, type, image, content, likes, comments } =
         JSON.parse(body);
       const id = req.url.split("/").pop();
+      const isExist = User.findById(id).exec();
 
-      console.log(body);
+      if (isExist == null) {
+        handleErrors(res, "查無此貼文");
+      } else {
+        const newPost = await Post.findByIdAndUpdate(
+          id,
+          {
+            name,
+            tags,
+            type,
+            image,
+            content,
+            likes,
+            comments,
+          },
+          {
+            // 回傳更新後的值
+            new: true,
+            // 使 findByIdAndUpdate 跑 Schema 驗證規則
+            runValidators: true,
+          }
+        );
 
-      const newPost = await Post.findByIdAndUpdate(
-        id,
-        {
-          name,
-          tags,
-          type,
-          image,
-          content,
-          likes,
-          comments,
-        },
-        {
-          // 回傳更新後的值
-          new: true,
-          // 使 findByIdAndUpdate 跑 Schema 驗證規則
-          runValidators: true,
-        }
-      );
-
-      handleSuccess(res, newPost);
+        handleSuccess(res, newPost);
+      }
     } catch (err) {
       handleErrors(res, err);
     }
@@ -79,6 +82,7 @@ const posts = {
   async delPost({ req, res }) {
     try {
       const id = req.url.split("/").pop();
+
       const delPost = await Post.findByIdAndDelete(id, {
         // 回傳刪除後的值
         new: true,
